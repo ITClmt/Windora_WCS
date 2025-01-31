@@ -1,7 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 
-const apiKey = import.meta.env.VITE_API_KEY;
 const Weathercontext = createContext<propsTypes | null>(null);
 
 export function Weatherprovider({ children }: WeatherproviderType) {
@@ -15,14 +14,14 @@ export function Weatherprovider({ children }: WeatherproviderType) {
 
   const handleFetchData = () => {
     axios
-      .get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`,
-      )
-      .then((response) => setCityData(response.data))
+      .get(`/api/proxy?type=geo&q=${city}`)
+      .then((response) => {
+        setCityData(response.data);
+      })
       .catch((error) => {
         console.error(
-          "Erreur lors de la récupération des données météo :",
-          error,
+          "Erreur lors de la récupération des données géo :",
+          error.response?.data || error.message,
         );
       });
     setCity("");
@@ -32,7 +31,7 @@ export function Weatherprovider({ children }: WeatherproviderType) {
     if (cityData.length) {
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${cityData[0].lat}&lon=${cityData[0].lon}&units=metric&lang=fr&appid=${apiKey}`,
+          `/api/proxy?type=weather&lat=${cityData[0].lat}&lon=${cityData[0].lon}&units=metric&lang=fr`,
         )
         .then((response) => {
           setWeatherData(response.data);
@@ -40,7 +39,7 @@ export function Weatherprovider({ children }: WeatherproviderType) {
         .catch((error) => {
           console.error(
             "Erreur lors de la récupération des données météo :",
-            error,
+            error.response?.data || error.message,
           );
         });
     }
@@ -73,48 +72,60 @@ export function Weatherprovider({ children }: WeatherproviderType) {
     if (cityData.length) {
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/forecast?lat=${cityData[0].lat}&lon=${cityData[0].lon}&units=metric&lang=fr&appid=${apiKey}`,
+          `/api/proxy?type=forecast&lat=${cityData[0].lat}&lon=${cityData[0].lon}&units=metric&lang=fr`,
         )
-        .then((response) => setWeatherDays(response.data.list))
+        .then((response) => {
+          setWeatherDays(response.data.list);
+        })
         .catch((error) => {
           console.error(
-            "Erreur lors de la récupération des données météo :",
-            error,
+            "Erreur lors de la récupération des prévisions :",
+            error.response?.data || error.message,
           );
         });
     }
   }, [cityData]);
 
   // Get user location
-
   useEffect(() => {
     const getUserLocation = () => {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-          const { latitude, longitude } = position.coords;
-          axios
-            .get(
-              `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=fr&appid=${apiKey}`,
-            )
-            .then((response) => setWeatherData(response.data))
-            .catch((error) => {
-              console.error(
-                "Erreur lors de la récupération des données météo :",
-                error,
-              );
-            });
-          axios
-            .get(
-              `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&lang=fr&appid=${apiKey}`,
-            )
-            .then((response) => setWeatherDays(response.data.list))
-            .catch((error) => {
-              console.error(
-                "Erreur lors de la récupération des données météo :",
-                error,
-              );
-            });
-        });
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+
+            axios
+              .get(
+                `/api/proxy?type=weather&lat=${latitude}&lon=${longitude}&units=metric&lang=fr`,
+              )
+              .then((response) => {
+                setWeatherData(response.data);
+              })
+              .catch((error) => {
+                console.error(
+                  "Erreur lors de la récupération des données météo :",
+                  error.response?.data || error.message,
+                );
+              });
+
+            axios
+              .get(
+                `/api/proxy?type=forecast&lat=${latitude}&lon=${longitude}&units=metric&lang=fr`,
+              )
+              .then((response) => {
+                setWeatherDays(response.data.list);
+              })
+              .catch((error) => {
+                console.error(
+                  "Erreur lors de la récupération des prévisions :",
+                  error.response?.data || error.message,
+                );
+              });
+          },
+          (error) => {
+            console.error("Erreur de géolocalisation:", error);
+          },
+        );
       } else {
         console.error(
           "La géolocalisation n'est pas supportée par ce navigateur.",
