@@ -1,0 +1,115 @@
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+  margin-top: 1rem;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.801);
+  backdrop-filter: blur(3px);
+}
+
+.main-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+}
+
+.desc {
+  font-size: 1.5vh;
+}
+
+.temp {
+  font-size: 2.6rem;
+  font-weight: 600;
+}
+
+.min-max {
+  font-size: 0.6rem;
+  margin-top: -0.6rem;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: end;
+}
+
+.time {
+  font-size: 2rem;
+  margin-top: -0.6rem;
+}
+
+.day-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 25%;
+}
+
+.day-list > button {
+  height: 2rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.093);
+  border: none;
+  cursor: pointer;
+  border-left: 1px solid rgba(0, 0, 0, 0.093);
+  border-right: 1px solid rgba(0, 0, 0, 0.093);
+}
+
+.day-list button.selected {
+  background-color: rgba(0, 0, 0, 0.396);
+}
+
+.day-list > button:first-child {
+  border-bottom-left-radius: 1rem;
+}
+
+.day-list > button:last-child {
+  border-bottom-right-radius: 1rem;
+}
+
+@media (min-width: 640px) {
+  article {
+    max-width: 440px;
+  }
+}
+
+@media (min-width: 768px) {
+  article {
+    max-width: 520px;
+  }
+}
+
+@media (min-width: 1024px) {
+  article {
+    max-width: 680px;
+  }
+  .main-info {
+    padding: 1rem 6rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  article {
+    max-width: 780px;
+  }
+}
+
+@media (min-width: 1536px) {
+  article {
+    max-width: 880px;
+  }
+}

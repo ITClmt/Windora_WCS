@@ -1,0 +1,128 @@
+.form-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+}
+
+.form-container h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 2rem;
+  text-align: center;
+  padding: 2rem;
+  text-shadow: none;
+}
+
+.form-container p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #333;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: black;
+}
+
+.search-button {
+  padding: 0.8rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+label {
+  font-weight: 500;
+  color: #333;
+}
+
+.secondary-button {
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.existing-users {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.existing-users p {
+  color: #333;
+}
+
+.users-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.user-button {
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.26);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #333;
+}
+
+.user-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.delete-user-button {
+  padding: 0.4rem 0.6rem;
+  background-color: rgba(255, 59, 59, 0.2);
+  border: 1px solid rgba(255, 59, 59, 0.3);
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

@@ -1,0 +1,119 @@
+.main-card-section {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.801);
+}
+
+.city-date-main-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-main-card {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.date-main-card {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.main-card-container {
+  margin: 0 auto;
+  padding: 1rem;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(3px);
+}
+
+.left-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.ressenti {
+  display: flex;
+  padding: 0.3rem;
+}
+.vent {
+  display: flex;
+  padding: 0.3rem;
+}
+.humidite {
+  display: flex;
+  padding: 0.3rem;
+}
+
+.right-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-data-main-card {
+  font-size: 1rem;
+  font-weight: 200;
+  margin-left: 0.5rem;
+}
+
+.temperature-main-card {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.conditions {
+  display: flex;
+  padding: 0.3rem;
+}
+
+.btn-favorites {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 8px;
+  border-style: none;
+}
+
+@media (min-width: 640px) {
+  .main-card-section {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-card-section {
+    max-width: 620px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-card-section {
+    max-width: 780px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .main-card-section {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .main-card-section {
+    max-width: 1000px;
+  }
+}

@@ -1,0 +1,132 @@
+#map {
+  height: 190px;
+}
+
+.navbar {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100px;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  margin-top: 1rem;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.801);
+}
+.layer-container {
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  border: none;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 1rem;
+  position: fixed;
+  top: 11rem;
+  right: -100vw;
+  z-index: 1000;
+  height: auto;
+  visibility: hidden;
+  transition: 1.8s ease-out;
+}
+.show-nav .layer-container {
+  visibility: visible;
+  top: 11rem;
+  right: 0;
+  min-width: 161px;
+  transition: 0.8s ease;
+}
+.layer-button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.801);
+}
+.layer-button:focus {
+  color: rgba(0, 0, 0, 0.575);
+}
+.layer-button:hover {
+  color: rgba(0, 0, 0, 0.575);
+  font-size: 1.1rem;
+  transition: 0.3s;
+  font-weight: 700;
+  cursor: pointer;
+}
+/* aligner par rapport au titre de la page */
+.navbar-burger {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+.navbar-burger:hover {
+  cursor: pointer;
+}
+
+.burger-bar,
+.burger-bar::before,
+.burger-bar::after {
+  display: block;
+  width: 40px;
+  height: 3px;
+  position: relative;
+  background-color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+.burger-bar::before,
+.burger-bar::after {
+  content: "";
+  position: absolute;
+}
+.burger-bar::before {
+  transform: translateY(-12px);
+}
+
+.burger-bar::after {
+  transform: translateY(12px);
+}
+
+.show-nav .burger-bar {
+  background: transparent;
+  width: 0;
+}
+
+.show-nav .burger-bar::before {
+  transform: rotate(45deg);
+}
+.show-nav .burger-bar::after {
+  transform: rotate(-45deg);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.leaflet-bar a {
+  background-color: rgba(0, 0, 0, 0.093);
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: rgba(0, 0, 0, 0.671);
+}
+
+.leaflet-popup-content {
+  font-size: 1rem;
+}
+
+.leaflet-popup-content p {
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.801);
+}
