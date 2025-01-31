@@ -2,7 +2,7 @@ import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import { useWeather } from "./WeatherContext";
-import "../Styles/WeatherMap.css";
+import "../styles/WeatherMap.css";
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const MoveMap = ({ position }: MoveMapProps) => {
