@@ -1,4 +1,4 @@
-import "../Styles/CardAlert.css";
+import "../styles/CardAlert.css";
 import { useWeather } from "../components/WeatherContext";
 import SvgIcons from "./SvgIcons";
 
